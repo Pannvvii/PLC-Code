@@ -1,0 +1,637 @@
+(****** QuickLD compiler *******************************)
+(****** Copyright Rockwell Automation Canada, Ltd ******)
+(****** ST *********************************************)
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+LASER_1_1 := _IO_EM_DI_00 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+LASER_1_2 := _IO_EM_DI_01 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+LASER_2_1 := _IO_EM_DI_02 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+LASER_2_2 := _IO_EM_DI_03 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+LASER_3_1 := _IO_EM_DI_04 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+LASER_3_2 := _IO_EM_DI_09 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+VALVE1_OPEN := _IO_EM_DO_02 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+VALVE1_CLOSE := _IO_EM_DO_03 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+VALVE2_OPEN := _IO_EM_DO_04 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+VALVE2_CLOSE := _IO_EM_DO_05 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+VALVE3_OPEN := _IO_EM_DO_06 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+VALVE3_CLOSE := _IO_EM_DO_07 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+EMPTY_1 := NOT(LASER_1_1) AND NOT(LASER_1_2) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+EMPTY_2 := NOT(LASER_2_1) AND NOT(LASER_2_2) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+EMPTY_3 := NOT(LASER_3_1) AND NOT(LASER_3_2) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+FULL_1 := LASER_1_1 AND LASER_1_2 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+FULL_2 := LASER_2_1 AND LASER_2_2 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+FULL_3 := LASER_3_1 AND LASER_3_2 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+MIDDLE_1 := LASER_1_1 AND NOT(LASER_1_2) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+MIDDLE_2 := LASER_2_1 AND NOT(LASER_2_2) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+MIDDLE_3 := LASER_3_1 AND NOT(LASER_3_2) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB1 := VALVE1_OPEN ;
+IF __EDTB1 THEN
+(*Set coil*)
+FILLING_1 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB2 := VALVE2_OPEN ;
+IF __EDTB2 THEN
+(*Set coil*)
+FILLING_2 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB3 := VALVE3_OPEN ;
+IF __EDTB3 THEN
+(*Set coil*)
+FILLING_3 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB4 := VALVE1_CLOSE ;
+IF __EDTB4 THEN
+(*Reset coil*)
+FILLING_1 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB5 := VALVE2_CLOSE ;
+IF __EDTB5 THEN
+(*Reset coil*)
+FILLING_2 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB6 := VALVE3_CLOSE ;
+IF __EDTB6 THEN
+(*Reset coil*)
+FILLING_3 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB7 := NOT(DISABLED) AND NOT(STOP_1) AND EMPTY_1 AND TON_1Q ;
+IF __EDTB7 THEN
+(*Reset coil*)
+_IO_EM_DO_03 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB8 := NOT(DISABLED) AND NOT(STOP_1) AND EMPTY_1 AND TON_1Q ;
+IF __EDTB8 THEN
+(*Set coil*)
+_IO_EM_DO_02 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+(* FB call: TON *)
+TON_4(_IO_EM_DO_02, T#5S) ;
+__EDTB9 := TON_4.Q ;
+IF __EDTB9 THEN
+(*Set coil*)
+TON_4Q := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB10 := TON_4Q ;
+IF __EDTB10 THEN
+(*Reset coil*)
+TON_1Q := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB11 := NOT(DISABLED) AND NOT(STOP_2) AND EMPTY_2 AND TON_2Q ;
+IF __EDTB11 THEN
+(*Reset coil*)
+_IO_EM_DO_05 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB12 := NOT(DISABLED) AND NOT(STOP_2) AND EMPTY_2 AND TON_2Q ;
+IF __EDTB12 THEN
+(*Set coil*)
+_IO_EM_DO_04 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+(* FB call: TON *)
+TON_5(_IO_EM_DO_04, T#5S) ;
+__EDTB13 := TON_5.Q ;
+IF __EDTB13 THEN
+(*Set coil*)
+TON_5Q := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB14 := TON_5Q ;
+IF __EDTB14 THEN
+(*Reset coil*)
+TON_2Q := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB15 := NOT(DISABLED) AND NOT(STOP_3) AND EMPTY_3 AND TON_3Q ;
+IF __EDTB15 THEN
+(*Reset coil*)
+_IO_EM_DO_07 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB16 := NOT(DISABLED) AND NOT(STOP_3) AND EMPTY_3 AND TON_3Q ;
+IF __EDTB16 THEN
+(*Set coil*)
+_IO_EM_DO_06 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+(* FB call: TON *)
+TON_6(_IO_EM_DO_06, T#5S) ;
+__EDTB17 := TON_6.Q ;
+IF __EDTB17 THEN
+(*Set coil*)
+TON_6Q := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB18 := TON_6Q ;
+IF __EDTB18 THEN
+(*Reset coil*)
+TON_3Q := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB19 := FULL_1 ;
+__EDTB20 := DISABLED ;
+__EDTB21 := STOP_1 ;
+__EDTB22 := (__EDTB20 OR __EDTB21) ;
+__EDTB23 := (__EDTB19 OR __EDTB22) AND TON_4Q ;
+IF __EDTB23 THEN
+(*Reset coil*)
+_IO_EM_DO_02 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB24 := FULL_1 ;
+__EDTB25 := DISABLED ;
+__EDTB26 := STOP_1 ;
+__EDTB27 := (__EDTB25 OR __EDTB26) ;
+__EDTB28 := (__EDTB24 OR __EDTB27) AND TON_4Q ;
+IF __EDTB28 THEN
+(*Set coil*)
+_IO_EM_DO_03 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+(* FB call: TON *)
+TON_1(_IO_EM_DO_03, T#5S) ;
+__EDTB29 := TON_1.Q ;
+IF __EDTB29 THEN
+(*Set coil*)
+TON_1Q := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB30 := TON_1Q ;
+IF __EDTB30 THEN
+(*Reset coil*)
+TON_4Q := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB31 := FULL_2 ;
+__EDTB32 := DISABLED ;
+__EDTB33 := STOP_2 ;
+__EDTB34 := (__EDTB32 OR __EDTB33) ;
+__EDTB35 := (__EDTB31 OR __EDTB34) AND TON_5Q ;
+IF __EDTB35 THEN
+(*Reset coil*)
+_IO_EM_DO_04 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB36 := FULL_2 ;
+__EDTB37 := DISABLED ;
+__EDTB38 := STOP_2 ;
+__EDTB39 := (__EDTB37 OR __EDTB38) ;
+__EDTB40 := (__EDTB36 OR __EDTB39) AND TON_5Q ;
+IF __EDTB40 THEN
+(*Set coil*)
+_IO_EM_DO_05 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+(* FB call: TON *)
+TON_2(_IO_EM_DO_05, T#5S) ;
+__EDTB41 := TON_2.Q ;
+IF __EDTB41 THEN
+(*Set coil*)
+TON_2Q := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB42 := TON_2Q ;
+IF __EDTB42 THEN
+(*Reset coil*)
+TON_5Q := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB43 := FULL_3 ;
+__EDTB44 := DISABLED ;
+__EDTB45 := STOP_3 ;
+__EDTB46 := (__EDTB44 OR __EDTB45) ;
+__EDTB47 := (__EDTB43 OR __EDTB46) AND TON_6Q ;
+IF __EDTB47 THEN
+(*Reset coil*)
+_IO_EM_DO_06 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB48 := FULL_3 ;
+__EDTB49 := DISABLED ;
+__EDTB50 := STOP_3 ;
+__EDTB51 := (__EDTB49 OR __EDTB50) ;
+__EDTB52 := (__EDTB48 OR __EDTB51) AND TON_6Q ;
+IF __EDTB52 THEN
+(*Set coil*)
+_IO_EM_DO_07 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+(* FB call: TON *)
+TON_3(_IO_EM_DO_07, T#5S) ;
+__EDTB53 := TON_3.Q ;
+IF __EDTB53 THEN
+(*Set coil*)
+TON_3Q := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+__EDTB54 := TON_3Q ;
+IF __EDTB54 THEN
+(*Reset coil*)
+TON_6Q := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+(*Label :*)(**)
+DISABLED := E_STOP ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Code for the end of File **************)
+__GL __LG0000 ;
+
+
+
+(*************** Local Symbols table *******************)
+(* __EDTB1 *)
+(* __EDTB2 *)
+(* __EDTB3 *)
+(* __EDTB4 *)
+(* __EDTB5 *)
+(* __EDTB6 *)
+(* __EDTB7 *)
+(* __EDTB8 *)
+(* __EDTB9 *)
+(* __EDTB10 *)
+(* __EDTB11 *)
+(* __EDTB12 *)
+(* __EDTB13 *)
+(* __EDTB14 *)
+(* __EDTB15 *)
+(* __EDTB16 *)
+(* __EDTB17 *)
+(* __EDTB18 *)
+(* __EDTB19 *)
+(* __EDTB20 *)
+(* __EDTB21 *)
+(* __EDTB22 *)
+(* __EDTB23 *)
+(* __EDTB24 *)
+(* __EDTB25 *)
+(* __EDTB26 *)
+(* __EDTB27 *)
+(* __EDTB28 *)
+(* __EDTB29 *)
+(* __EDTB30 *)
+(* __EDTB31 *)
+(* __EDTB32 *)
+(* __EDTB33 *)
+(* __EDTB34 *)
+(* __EDTB35 *)
+(* __EDTB36 *)
+(* __EDTB37 *)
+(* __EDTB38 *)
+(* __EDTB39 *)
+(* __EDTB40 *)
+(* __EDTB41 *)
+(* __EDTB42 *)
+(* __EDTB43 *)
+(* __EDTB44 *)
+(* __EDTB45 *)
+(* __EDTB46 *)
+(* __EDTB47 *)
+(* __EDTB48 *)
+(* __EDTB49 *)
+(* __EDTB50 *)
+(* __EDTB51 *)
+(* __EDTB52 *)
+(* __EDTB53 *)
+(* __EDTB54 *)
+
